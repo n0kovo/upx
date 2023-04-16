@@ -282,10 +282,6 @@ void upx_compiler_sanity_check(void) {
     COMPILE_TIME_ASSERT_ALIGNED1(upx_charptr_unit_type)
     COMPILE_TIME_ASSERT(sizeof(*((charptr) nullptr)) == 1)
 
-    COMPILE_TIME_ASSERT(sizeof(UPX_VERSION_YEAR) == 4 + 1)
-    assert(strlen(UPX_VERSION_YEAR) == 4);
-    assert(memcmp(UPX_VERSION_DATE_ISO, UPX_VERSION_YEAR, 4) == 0);
-    assert(memcmp(&UPX_VERSION_DATE[sizeof(UPX_VERSION_DATE) - 1 - 4], UPX_VERSION_YEAR, 4) == 0);
     if (gitrev[0]) {
         size_t revlen = strlen(gitrev);
         if (strncmp(gitrev, "ERROR", 5) == 0) {

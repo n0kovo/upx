@@ -418,10 +418,6 @@ void PackWcle::pack(OutputFile *fo) {
     readImage();
     readNonResidentNames();
 
-    //    if (find_le32(iimage,20,get_le32("UPX ")) >= 0)
-    if (find_le32(raw_bytes(iimage, soimage), UPX_MIN(soimage, 256u), UPX_MAGIC_LE32) >= 0)
-        throwAlreadyPacked();
-
     if (ih.init_ss_object != objects)
         throwCantPack("the stack is not in the last object");
 

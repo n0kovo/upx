@@ -381,8 +381,6 @@ void PackExe::pack(OutputFile *fo) {
     fi->seek(ih.headsize16 * 16, SEEK_SET);
     fi->readx(ibuf, ih_imagesize);
 
-    checkAlreadyPacked(ibuf, UPX_MIN(ih_imagesize, 127u));
-
     device_driver = get_le32(ibuf) == 0xffffffffu;
 
     // relocations

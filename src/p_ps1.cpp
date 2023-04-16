@@ -227,7 +227,6 @@ bool PackPs1::canPack() {
         return false;
 
     fi->readx(buf, sizeof(buf));
-    checkAlreadyPacked(buf, sizeof(buf));
 
     for (size_t i = 0; i < sizeof(buf); i++)
         if (buf[i] != 0) {

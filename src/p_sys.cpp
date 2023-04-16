@@ -48,7 +48,6 @@ bool PackSys::canPack() {
         return false;
     if (!fn_has_ext(fi->getName(), "sys")) // query file name
         return false;
-    checkAlreadyPacked(buf, sizeof(buf));
     if (file_size < 1024)
         throwCantPack("file is too small for dos/sys");
     if (file_size > 0x10000)

@@ -76,7 +76,6 @@ bool PackUnix::canPack()
     unsigned char buf[256];
     fi->seek(-(off_t)sizeof(buf), SEEK_END);
     fi->readx(buf, sizeof(buf));
-    checkAlreadyPacked(buf, sizeof(buf));
 
     return true;
 }

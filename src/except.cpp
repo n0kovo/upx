@@ -90,13 +90,6 @@ void throwUnknownExecutableFormat(const char *msg, bool warn) {
 
 void throwNotCompressible(const char *msg) { throw NotCompressibleException(msg); }
 
-void throwAlreadyPacked(const char *msg) { throw AlreadyPackedException(msg); }
-
-void throwAlreadyPackedByUPX(const char *msg) {
-    if (msg == nullptr)
-        msg = "already packed by UPX";
-    throwAlreadyPacked(msg);
-}
 
 /*************************************************************************
 // decompression

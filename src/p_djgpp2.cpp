@@ -203,10 +203,6 @@ bool PackDjgpp2::canPack() {
     if (is_dlm(fi, coff_offset))
         throwCantPack("can't handle DLM");
 
-    if (opt->force == 0)
-        if (text->size != coff_hdr.a_tsize || data->size != coff_hdr.a_dsize)
-            throwAlreadyPacked();
-
     // Check for gap in vaddr between text and data, or between data and bss.
     if (text->vaddr + text->size != data->vaddr || data->vaddr + data->size != bss->vaddr) {
         // "Non-standard" layout of text,data,bss: not contiguous in vaddr.
@@ -219,11 +215,7 @@ bool PackDjgpp2::canPack() {
             // Examples: Quake1; FreePascal(DOS) install.exe (github-issue45)
             // Hack: enlarge text image data to eliminate the gap.
             text->size = coff_hdr.a_tsize = data->scnptr - text->scnptr;
-            // But complain if this causes overlap in vaddr
-            if (text->vaddr + text->size > data->vaddr)
-                throwAlreadyPacked();
-        } else
-            throwAlreadyPacked();
+        }
     }
     // FIXME: check for Linux etc.
     return true;

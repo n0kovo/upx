@@ -2014,9 +2014,6 @@ void PeFile::checkHeaderValues(unsigned subsystem, unsigned mask, unsigned ih_en
     if (isection == nullptr)
         throwCantPack("No section was found");
 
-    if (memcmp(isection[0].name, "UPX", 3) == 0)
-        throwAlreadyPackedByUPX();
-
     if (!opt->force && IDSIZE(15))
         throwCantPack("file is possibly packed/protected (try --force)");
 

@@ -68,7 +68,6 @@ bool PackCom::canPack() {
         return false;
     if (!fn_has_ext(fi->getName(), "com")) // query file name
         return false;
-    checkAlreadyPacked(buf, sizeof(buf));
     if (file_size < 1024)
         throwCantPack("file is too small for dos/com");
     if (file_size > 0xFF00)

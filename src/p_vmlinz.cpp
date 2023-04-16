@@ -235,8 +235,6 @@ int PackVmlinuzI386::decompressKernel()
     }
     }
 
-    checkAlreadyPacked(obuf + setup_size, UPX_MIN(file_size - setup_size, 1024LL));
-
     int gzoff = setup_size;
     if (0x208<=h.version) {
         gzoff += h.payload_offset;

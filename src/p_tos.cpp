@@ -345,7 +345,6 @@ bool PackTos::canPack() {
 
     byte buf[768];
     fi->readx(buf, sizeof(buf));
-    checkAlreadyPacked(buf, sizeof(buf));
 
     if (!checkFileHeader())
         throwCantPack("unsupported header flags");

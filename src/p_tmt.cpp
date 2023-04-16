@@ -175,11 +175,6 @@ void PackTmt::pack(OutputFile *fo) {
     fi->seek(adam_offset + sizeof(ih), SEEK_SET);
     fi->readx(ibuf, usize);
 
-    if (find_le32(ibuf, UPX_MIN(128u, usize), get_le32("UPX ")) >= 0)
-        throwAlreadyPacked();
-    if (rsize == 0)
-        throwCantPack("file is already compressed with another packer");
-
     MemBuffer mb_relocs(rsize);
     SPAN_S_VAR(byte, relocs, mb_relocs);
     fi->readx(relocs, rsize);

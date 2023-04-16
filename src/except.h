@@ -198,8 +198,6 @@ NORET void throwCantPack(const char *msg);
 NORET void throwCantPackExact();
 NORET void throwUnknownExecutableFormat(const char *msg = nullptr, bool warn = false);
 NORET void throwNotCompressible(const char *msg = nullptr);
-NORET void throwAlreadyPacked(const char *msg = nullptr);
-NORET void throwAlreadyPackedByUPX(const char *msg = nullptr);
 NORET void throwCantUnpack(const char *msg);
 NORET void throwNotPacked(const char *msg = nullptr);
 NORET void throwFilterException();

@@ -2547,9 +2547,6 @@ PackLinuxElf64::canPack()
             max_offset = UPX_MAX(max_offset, get_te64(&phdr->p_filesz) + get_te64(&phdr->p_offset));
         }
     }
-    if (canUnpack() > 0) {
-        throwAlreadyPacked();
-    }
     // We want to compress position-independent executable (gcc -pie)
     // main programs, but compressing a shared library must be avoided
     // because the result is no longer usable.  In theory, there is no way

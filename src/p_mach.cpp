@@ -1979,7 +1979,6 @@ bool PackMachBase<T>::canPack()
                     struct l_info h;
                     fi->seek(offset, SEEK_SET);
                     fi->readx(&h, sizeof(h));
-                    checkAlreadyPacked(&h, sizeof(h));
                 }
             }
             if (!strcmp("__DATA", segptr->segname)) {
@@ -2044,7 +2043,6 @@ bool PackMachBase<T>::canPack()
     unsigned char buf[256];
     fi->seek(-(off_t)sizeof(buf), SEEK_END);
     fi->readx(buf, sizeof(buf));
-    checkAlreadyPacked(buf, sizeof(buf));
 
     // set options
     opt->o_unix.blocksize = file_size;
@@ -2547,7 +2545,6 @@ bool PackMachFat::canPack()
     unsigned char buf[256];
     fi->seek(-(off_t)sizeof(buf), SEEK_END);
     fi->readx(buf, sizeof(buf));
-    checkAlreadyPacked(buf, sizeof(buf));
 
     return true;
 }

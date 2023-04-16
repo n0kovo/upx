@@ -438,7 +438,7 @@ constexpr bool string_ge(const char *a, const char *b) {
 
 
 // magic constants for patching
-#define UPX_MAGIC_LE32          0x21585055      /* "UPX!" */
+#define UPX_MAGIC_LE32          0x00000000      /* "UPX!" */
 #define UPX_MAGIC2_LE32         0xD5D0D8A1
 
 

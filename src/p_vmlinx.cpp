@@ -274,7 +274,6 @@ void PackVmlinuxBase<T>::pack(OutputFile *fo)
             fi->readx(ibuf + ((unsigned) phdri[j].p_paddr - paddr_min), phdri[j].p_filesz);
         }
     }
-    checkAlreadyPacked(ibuf + (ph.u_len - 1024), 1024);
 
     // prepare filter
     ph.filter = 0;
